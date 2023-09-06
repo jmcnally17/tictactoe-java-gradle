@@ -48,7 +48,7 @@ which creates the .class files in `build/classes/java/main` in the [app](https:/
 While in the [main](https://github.com/jmcnally17/tictactoe-java-gradle) directory, run
 
 ```
-gradle app:run
+gradle --console plain run
 ```
 
 and the game should run in your terminal.

@@ -18,6 +18,7 @@ repositories {
 dependencies {
     // Use TestNG framework, also requires calling test.useTestNG() below
     testImplementation("org.testng:testng:7.8.0")
+    testImplementation("org.mockito:mockito-core:5.5.0")
 
     // This dependency is used by the application.
     implementation("com.google.guava:guava:32.1.1-jre")
@@ -32,7 +33,11 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass.set("App")
+    mainClass.set("TicTacToe")
+}
+
+tasks.named<JavaExec>("run") {
+    standardInput = System.`in`
 }
 
 tasks.named<Test>("test") {
