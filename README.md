@@ -63,4 +63,4 @@ gradle test --rerun-tasks
 
 into your terminal. This compiles the test files into .class files which are generated and run in `build/classes/java/test` in the [app](https://github.com/jmcnally17/tictactoe-java-gradle/tree/main/app) folder.
 
-After running the tests, code coverage stats should have been generated in a coverage folder in the [app](https://github.com/jmcnally17/tictactoe-java-gradle/tree/main/app) folder using the [JaCoCo](https://www.jacoco.org/jacoco/) Maven plugin. These are in HTML format and can be viewed by opening them in your browser.
+After running the tests, code coverage stats should be generated in `build/reports/jacoco` in the [app](https://github.com/jmcnally17/tictactoe-java-gradle/tree/main/app) folder using the [JaCoCo](https://www.jacoco.org/jacoco/) plugin. These are in HTML format and can be viewed by opening them in your browser.

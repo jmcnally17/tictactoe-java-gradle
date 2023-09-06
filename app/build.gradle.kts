@@ -8,6 +8,7 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     application
+    jacoco
 }
 
 repositories {
@@ -45,6 +46,11 @@ tasks.named<Test>("test") {
         showStandardStreams = true
         events("passed", "skipped", "failed")
     }
+    finalizedBy(tasks.jacocoTestReport)
     // Use TestNG for unit tests.
     useTestNG()
+}
+
+tasks.jacocoTestReport {
+    dependsOn(tasks.test)
 }
