@@ -37,6 +37,11 @@ application {
     mainClass.set("TicTacToe")
 }
 
+jacoco {
+    toolVersion = "0.8.10"
+    reportsDirectory.set(layout.buildDirectory.dir("coverage"))
+}
+
 tasks.named<JavaExec>("run") {
     standardInput = System.`in`
 }
