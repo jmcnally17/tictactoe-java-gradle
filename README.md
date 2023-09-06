@@ -29,7 +29,7 @@ brew install java
 sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
 ```
 
-and then you are free to install Maven with
+and then you are free to install Gradle with
 
 ```
 brew install gradle
