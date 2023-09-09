@@ -1,5 +1,6 @@
 import static org.testng.Assert.*;
 import static org.mockito.Mockito.*;
+
 import java.io.PrintStream;
 
 import org.testng.annotations.BeforeMethod;
@@ -8,7 +9,7 @@ import org.testng.annotations.Test;
 /**
  * Unit test for Board class
  */
-@Test(groups = { "Board" })
+@Test(groups = {"Board"})
 public class BoardTest {
   private Board board;
   private Cell[][] cells;
@@ -25,12 +26,12 @@ public class BoardTest {
     Cell cell7 = mock(Cell.class);
     Cell cell8 = mock(Cell.class);
     Cell cell9 = mock(Cell.class);
-    cells = new Cell[][] { { cell1, cell2, cell3 }, { cell4, cell5, cell6 }, { cell7, cell8, cell9 } };
+    cells = new Cell[][]{{cell1, cell2, cell3}, {cell4, cell5, cell6}, {cell7, cell8, cell9}};
     board = new Board(cells);
     mockOut = mock(PrintStream.class);
   }
 
-  @Test(groups = { "display" })
+  @Test(groups = {"display"})
   public void printsTheBoardToTerminal() {
     // Set up mocks
     int value = 1;
@@ -124,7 +125,7 @@ public class BoardTest {
     verify(cells[2][2]).fill(1, mockOut);
   }
 
-  @Test(groups = { "makemove" })
+  @Test(groups = {"makemove"})
   public void printsInvalidNumber() {
     assertFalse(board.makeMove("25", 1, mockOut));
     verify(mockOut).println("Invalid cell number!");
@@ -346,7 +347,7 @@ public class BoardTest {
     verify(cells[2][2], times(0)).getValue();
   }
 
-  @Test(groups = { "havecellsbeenfilled" })
+  @Test(groups = {"havecellsbeenfilled"})
   public void trueForAllCellsFilled() {
     for (Cell[] row : cells) {
       for (Cell cell : row) {
@@ -362,7 +363,7 @@ public class BoardTest {
     }
   }
 
-  @Test(groups = { "havecellsbeenfilled" })
+  @Test(groups = {"havecellsbeenfilled"})
   public void falseForNoCellsFilled() {
     for (Cell[] row : cells) {
       for (Cell cell : row) {

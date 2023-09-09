@@ -1,5 +1,6 @@
 import static org.testng.Assert.*;
 import static org.mockito.Mockito.*;
+
 import java.io.PrintStream;
 import java.util.Scanner;
 
@@ -9,7 +10,7 @@ import org.testng.annotations.Test;
 /**
  * Unit tests for TicTacToe class
  */
-@Test(groups = { "TicTacToe" })
+@Test(groups = {"TicTacToe"})
 public class TicTacToeTest {
   private TicTacToe ticTacToe;
   private Board board;
@@ -24,18 +25,18 @@ public class TicTacToeTest {
     mockOut = mock(PrintStream.class);
   }
 
-  @Test(groups = { "tictactoeinstantiation" })
+  @Test(groups = {"tictactoeinstantiation"})
   public void playerTurnIs1() {
     assertEquals(1, ticTacToe.getPlayerTurn());
   }
 
-  @Test(groups = { "displayboard" })
+  @Test(groups = {"displayboard"})
   public void callsDisplayOnBoard() {
     ticTacToe.displayBoard();
     verify(board).display(System.out);
   }
 
-  @Test(groups = { "switchturn" })
+  @Test(groups = {"switchturn"})
   public void changesTurnBetween1And2() {
     ticTacToe.switchTurn();
     assertEquals(2, ticTacToe.getPlayerTurn());
@@ -86,7 +87,7 @@ public class TicTacToeTest {
     verify(mockScanner).nextLine();
   }
 
-  @Test(groups = { "takeplayersmove" })
+  @Test(groups = {"takeplayersmove"})
   public void asksPlayer2ForInputAndReturnsIt() {
     ticTacToe.switchTurn();
 
@@ -104,7 +105,7 @@ public class TicTacToeTest {
     verify(mockOut).println("Player 2 wins!");
   }
 
-  @Test(groups = { "declareresult" })
+  @Test(groups = {"declareresult"})
   public void printsPlayer1Winner() {
     ticTacToe.switchTurn();
 
