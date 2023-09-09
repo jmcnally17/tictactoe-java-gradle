@@ -2,9 +2,9 @@ import java.io.PrintStream;
 import java.util.Scanner;
 
 class TicTacToe {
-  private Board board;
+  private final Board board;
   private int playerTurn;
-  private Scanner scanner;
+  private final Scanner scanner;
 
   public TicTacToe(Board board, Scanner scanner) {
     this.board = board;

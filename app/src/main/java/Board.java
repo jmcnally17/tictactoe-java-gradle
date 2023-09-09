@@ -1,7 +1,7 @@
 import java.io.PrintStream;
 
 public class Board {
-  private Cell[][] cells;
+  private final Cell[][] cells;
 
   public Board(Cell[][] cells) {
     this.cells = cells;
@@ -24,29 +24,21 @@ public class Board {
   }
 
   public boolean makeMove(String move, int playerTurn, PrintStream out) {
-    switch (move) {
-      case "1":
-        return this.cells[0][0].fill(playerTurn, out);
-      case "2":
-        return this.cells[0][1].fill(playerTurn, out);
-      case "3":
-        return this.cells[0][2].fill(playerTurn, out);
-      case "4":
-        return this.cells[1][0].fill(playerTurn, out);
-      case "5":
-        return this.cells[1][1].fill(playerTurn, out);
-      case "6":
-        return this.cells[1][2].fill(playerTurn, out);
-      case "7":
-        return this.cells[2][0].fill(playerTurn, out);
-      case "8":
-        return this.cells[2][1].fill(playerTurn, out);
-      case "9":
-        return this.cells[2][2].fill(playerTurn, out);
-      default:
-        out.println("Invalid cell number!");
-        return false;
-    }
+      return switch (move) {
+          case "1" -> this.cells[0][0].fill(playerTurn, out);
+          case "2" -> this.cells[0][1].fill(playerTurn, out);
+          case "3" -> this.cells[0][2].fill(playerTurn, out);
+          case "4" -> this.cells[1][0].fill(playerTurn, out);
+          case "5" -> this.cells[1][1].fill(playerTurn, out);
+          case "6" -> this.cells[1][2].fill(playerTurn, out);
+          case "7" -> this.cells[2][0].fill(playerTurn, out);
+          case "8" -> this.cells[2][1].fill(playerTurn, out);
+          case "9" -> this.cells[2][2].fill(playerTurn, out);
+          default -> {
+              out.println("Invalid cell number!");
+              yield false;
+          }
+      };
   }
 
   public boolean winningTripleFound() {
